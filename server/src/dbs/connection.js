@@ -9,7 +9,10 @@ const password = process.env.DB_PASS
 const domain = process.env.DB_DOMAIN
 const name = process.env.DB_NAME
 
-mongoose.connect(`${port}//${user}:${password}@${domain}/${name}`).then(()=>{
+mongoose.connect(`${port}://${user}:${password}@${domain}/${name}`,{
+
+}).then(()=>{
+    
     console.log("database connected successfully!");
 }).catch((err)=>{
     console.log("database connection faild!!",err);
