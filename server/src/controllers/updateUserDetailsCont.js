@@ -1,11 +1,9 @@
-// import userLoginModel from "../models/userLoginModel.js";
-import { verifyJWT } from "../services/jwToken.js";
 import { algJsonForJWTConfigVar } from "../configurations/baseConfig.js";
 import userModel from "../models/userModel.js";
+import { verifyJWT } from "../services/jwToken.js";
 
-const userDetailsCont = async (req, res) => {
+const updateUserDetailsCont = async (req, res) => {
   try {
-
     const token = req.headers.cookie?.split("=")[1];
 
     if (!token) {
@@ -25,30 +23,32 @@ const userDetailsCont = async (req, res) => {
       });
       return;
     }
-console.log(verifyJwToken)
-    const user = await userModel.findOne({userID: verifyJwToken.data.id});
 
-    if (!user) {
-      res.status(404).send({
-        status: 404,
-        message: "user not found",
-      });
-      return
-    }
+    const user = await userModel.updateOne(
+      { userID: verifyJwToken.data.id },
+      {
+        name: req.body.name,
+        profile_pic: req.body.profile_pic,
+      }
+    );
+
+    const userDetails = await userModel.findOne({
+      userID: verifyJwToken.data.id,
+    });
 
     res.status(200).send({
       status: 200,
-      meaasgge: "user details",
-      data: user,
+      message: "user updated successfully",
+      userDetails,
     });
   } catch (error) {
     console.log(error);
-    res.status(500).send({
-      status: 500,
-      message: error.message,
+    res.status(400).send({
+      status: 400,
+      message:"error in update user details",
       error,
     });
   }
 };
 
-export default userDetailsCont;
+export default updateUserDetailsCont;

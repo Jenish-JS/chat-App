@@ -15,7 +15,7 @@ function userValidationMW(req, res, next) {
     }
 
     const passwordVerificationJson = passwordValidation(req.body.password);
-    console.log(passwordVerificationJson.isValid);
+    console.log("password validation === ",passwordVerificationJson.isValid);
 
     if (!passwordVerificationJson.isValid) {
       res.status(400).send({

@@ -1,4 +1,4 @@
-import { salt } from "../../configurations/baseConfig.js";
+import { salt }from "../configurations/baseConfig.js";
 import userModel from "../models/userModel.js";
 import { createHashKey } from "../services/hashing.js";
 
@@ -30,12 +30,14 @@ const userCreateCont = async (req, res) => {
     });
 
     const savedData = await dataModel.save();
+
+    console.log("user details === ",savedData)
     
     res.status(201).send(savedData);
   } catch (error) {
     console.log("database error",error)
     res.status(500).send({
-      message: "error in database.......",
+      message: "error in userCreate.......",
       error
     });
   }

@@ -19,10 +19,6 @@ const userModelSchema = new mongoose.Schema({
         type:String,
         required:[true,"provide password"]
     },
-    profile_pic:{
-        type:String,
-        dafault:""
-    },
 },{
     timestamps:true
 })

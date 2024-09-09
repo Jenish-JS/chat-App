@@ -1,25 +1,26 @@
 import mongoose from "mongoose";
 
 const messageSchema = new mongoose.Schema({
-  text: {
-    type: String,
-    default: "",
-  },
-  imageurl:{
+  chatID:{
     type:String,
-    default:""
-  },
-  videourl:{
-    type:String,
-    default:""
+    required:true
   },
   status:{
     type:String,
     enum:["sent", "deliverd", "seen"],
     default: "sent"
+  },
+  senderID:{
+    type:String,
+    required:true
+  },
+  message:{
+    type:String,
+  },
+  time:{
+    type:Date,
+    default:Date.now()
   }
-},{
-    timestamps:true
 });
 
 const messageModel = mongoose.model("message",messageSchema)

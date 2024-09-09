@@ -33,6 +33,7 @@ const userLoginValidationMW = async (req, res, next) => {
         status: 401,
         message: "incorect password",
       });
+      return
     }
 
     const getData = await userLoginModel.findOne({ userID: user.userID });

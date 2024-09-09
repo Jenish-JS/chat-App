@@ -1,4 +1,4 @@
-import { algJsonForJWTConfigVar } from "../../configurations/baseConfig.js";
+import { algJsonForJWTConfigVar } from "../configurations/baseConfig.js";
 import userLoginModel from "../models/userLoginModel.js";
 import userModel from "../models/userModel.js";
 import { createJWT } from "../services/jwToken.js";
@@ -43,6 +43,8 @@ const userLoginCont = async (req, res) => {
     const saveData = await data.save();
 
     // res.cookie("loginToken", jwToken.token);
+
+    console.log(saveData);
    
 
     res.cookie("loginToken",jwToken.token).status(200).send({

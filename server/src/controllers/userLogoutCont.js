@@ -1,4 +1,4 @@
-import { algJsonForJWTConfigVar } from "../../configurations/baseConfig.js";
+import { algJsonForJWTConfigVar } from "../configurations/baseConfig.js";
 import userLoginModel from "../models/userLoginModel.js"
 import { verifyJWT } from "../services/jwToken.js"
 
