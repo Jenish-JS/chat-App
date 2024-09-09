@@ -1,0 +1,299 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+.chat {
+  height: 36vw;
+  border: 1px solid rgb(209, 208, 208);
+  margin: 4% 6%;
+  border-radius: 6px;
+  box-shadow: 1px 1px 9px 1px;
+}
+
+.app {
+  display: flex;
+  height: 36vw;
+}
+
+.app1,
+.app2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.app1 {
+  max-width: 320px;
+  border-right: 1px solid #ddd;
+  background-color: #fff;
+}
+
+header {
+  background-color: #075e54;
+  color: #fff;
+  padding: 8px 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5em;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links .menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links li {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.nav-links .services {
+  position: relative;
+}
+
+.nav-links .dropdown {
+  display: none;
+  position: absolute;
+  top: 25px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  width: 200px;
+}
+
+.nav-links .services:hover .dropdown {
+  display: block;
+}
+
+.nav-links .dropdown li {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.nav-links .dropdown li:hover {
+  background-color: #f0f0f0;
+}
+
+.div {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.div .icon {
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.div1 {
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.div1 input {
+  width: calc(92% - 80px);
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+}
+
+.div1 button {
+  padding: 10px;
+  background-color: #075e54;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#userlist {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.app2 {
+  background-color: #ece5dd;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.div3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #075e54;
+  color: #fff;
+  padding: 10px 20px;
+  height: 4vw;
+}
+
+.div3 .div3a {
+  display: flex;
+  align-items: center;
+}
+
+.div3 .div3a .fa-user-circle {
+  margin-right: 10px;
+}
+
+.div3a i {
+  font-size: 43px;
+}
+
+.div3 .menu {
+  display: flex;
+  align-items: center;
+}
+
+.div3 .menu i {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.div3 .services {
+  position: relative;
+  list-style: none;
+}
+
+.div3 .services .dropdown {
+  display: none;
+  position: absolute;
+  top: 25px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  width: 200px;
+}
+
+.div3 .services:hover .dropdown {
+  display: block;
+}
+
+.div3 .dropdown li {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.div3 .dropdown li:hover {
+  background-color: #f0f0f0;
+}
+
+.div4 {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.chatDiv {
+  display: flex;
+  flex-direction: column;
+  height: 63.35vh;
+  display: block;
+}
+
+.left-chat,
+.right-chat {
+  width: 60%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+
+.left-chat {
+  background-color: #fff;
+  align-self: flex-start;
+  border: 1px solid #ddd;
+}
+
+.right-chat {
+  background-color: #dcf8c6;
+  align-self: flex-end;
+  border: 1px solid #ddd;
+}
+
+.div5 {
+  padding: 5px 1px;
+  background-color: #fff;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ddd;
+}
+
+#dropMessageInput {
+  width: calc(100% - 80px);
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+#dropMessageInput:focus {
+  outline: none;
+  border-color: #075e54;
+}
+
+#chtInputDiv {
+  width: 100%;
+}
+
+#chtInputDiv button {
+  padding: 10px;
+  background-color: #075e54;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 15%;
+}
+
+#chtInputDiv input {
+  width: 80%;
+}
+
+#chtInputDiv button:hover {
+  background-color: #064e48;
+}
+
+.div2 {
+  padding: 5px 5px;
+  font-size: 20px;
+  margin: 2px 3px;
+  border-radius: 5px 8px;
+}
+.div2:hover {
+  background-color: #ddd;
+}
