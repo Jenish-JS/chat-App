@@ -5,6 +5,25 @@ body {
   background-color: #f8f8f8;
 }
 
+.message{
+margin: 1%;
+  padding: 1% 0.5%;
+} 
+.right-message{
+  margin: 1%;
+  padding: 1% 0.5%;
+  text-align: right;
+}
+
+.chat-span-text{
+  padding: 1% 1.3%;
+  font-size: 1.2vw;
+  background-color: #f5eded;
+  border-radius: 6px;
+  font-weight: 700;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
 .chat {
   height: 36vw;
   border: 1px solid rgb(209, 208, 208);
@@ -168,6 +187,24 @@ header {
   font-size: 43px;
 }
 
+.p2 {
+  color: #b6b1b1;
+}
+
+.userList { 
+  padding:2% 3%;
+  margin: 1%;
+  border-radius: 5px;
+  font-size: 1.5vw;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.userList:hover{
+  cursor: pointer;
+  background-color: #e5e5e5;
+}
+
+
 .div3 .menu {
   display: flex;
   align-items: center;
@@ -216,9 +253,10 @@ header {
 }
 
 .chatDiv {
+  overflow: auto;
   display: flex;
   flex-direction: column;
-  height: 63.35vh;
+  height: 442px;
   display: block;
 }
 
@@ -251,6 +289,8 @@ header {
   display: flex;
   align-items: center;
   border-top: 1px solid #ddd;
+  /* border: 2px solid black; */
+  /* border-radius: 0px 0px 2px; */
 }
 
 #dropMessageInput {
