@@ -8,6 +8,7 @@ body {
 .message{
 margin: 1%;
   padding: 1% 0.5%;
+  behavior: 'smooth'
 } 
 .right-message{
   margin: 1%;

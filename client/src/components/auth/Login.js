@@ -78,7 +78,7 @@ function Login() {
         <div className="copyright text-center">
           <div className="wrapper">
             <p className="copy-footer-29">
-              &copy; 2024 My App Sugn Up form. All rights reserved | Design by{" "}
+              &copy; 2024 My App Sugn Up form. All rights reserved | Design by
               ChatApp
             </p>
           </div>
