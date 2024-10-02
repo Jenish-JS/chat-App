@@ -47,42 +47,35 @@ const io = new Server(server, {
 
 const connectedUSer = new Map();
 io.on("connection", async (socket) => {
-  
   let user;
   console.log("user connected and id is ===", socket.id);
 
   socket.on("registerUser", async (doc) => {
     console.log("user register", doc);
-    user = doc
+    user = doc;
+
+    await messageModel.updateMany(
+      { receiverID: doc.userID },
+      { status: "deliverd" }
+    );
     connectedUSer.set(doc.userID, socket.id);
-    // console.log("user register id==== ",connectedUSer);
-    console.log("Connected User :", connectedUSer)
+    console.log("Connected User :", connectedUSer);
 
     const getAllUSer = await userModel.find();
-    console.log("get all user from database ===",getAllUSer)
-    socket.emit("all_user_get", getAllUSer);
+  console.log("get all user from database ===", getAllUSer);
+  socket.emit("all_user_get", getAllUSer);
   });
 
-
   
 
-
-  // console.log("user ====>  ",user)
-
-  
-
-  
   socket.on("get_users", async (doc) => {
     try {
-      // console.log("user searched === ", doc.search);
-
       const data = await userModel.find({
         $or: [
           { name: { $regex: `^${doc.search}`, $options: "i" } },
           { email: { $regex: `^${doc.search}`, $options: "i" } },
         ],
       });
-      // console.log("get_user data ===", data);
 
       socket.emit("searched_value", data);
       // catch all chats from database
@@ -90,8 +83,6 @@ io.on("connection", async (socket) => {
   });
 
   socket.on("drop_message", async (doc) => {
-    // console.log("message === >  ", doc);
-
     const chatData = await messageModel.find({
       $or: [
         { senderID: doc.senderID, receiverID: doc.receiverID },
@@ -99,7 +90,6 @@ io.on("connection", async (socket) => {
       ],
     });
 
-    // console.log("chat data ====>>>>>",chatData);
     let chatMessage;
     if (!chatData.length) {
       const dataModel = new messageModel({
@@ -126,30 +116,21 @@ io.on("connection", async (socket) => {
 
     socket.emit("send_message", chatMessage);
 
-    //  console.log("send message from server =====>",chatMessage.receiverID);
-    // console.log("User :", socketID);
-    // const receiverSocketID = connectedUSer.get(chatMessage.receiverID);]
-    console.log("Connected Users :", connectedUSer)
-    console.log("Receiver ID", doc.receiverID);
-    
-   console.log("qqqqq", chatMessage);
-    socket.to(connectedUSer.get(doc.receiverID)).emit("caught_message", chatMessage);
+    socket
+      .to(connectedUSer.get(doc.receiverID))
+      .emit("caught_message", chatMessage);
   });
-  
- 
-  socket.on("catch_all_message", async (doc) => {
-    // console.log("in catch all message from client ======>",doc);
 
+  socket.on("catch_all_message", async (doc) => {
     const chatData = await messageModel.find({
       $or: [
         { senderID: doc.senderID, receiverID: doc.receiverID },
         { senderID: doc.receiverID, receiverID: doc.senderID },
       ],
     });
-    // console.log("get messages from database =====>",chatData);
+
     socket.emit("get_all_chat", chatData);
   });
-
 
   socket.on("disconnect", (socket) => {
     console.log("user disconnected === ", socket.id);

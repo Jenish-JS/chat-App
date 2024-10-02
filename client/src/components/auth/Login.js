@@ -22,9 +22,9 @@ function Login() {
   function apiCalling(data){
     try {
       axios.post("http://localhost:7000/auth/login/",data).then((rawData)=>{
-        console.log("rawData === ",rawData.data);
+        // console.log("rawData === ",rawData.data);
         localStorage.setItem("userID",(rawData.data?.data.userID));
-        console.log("userId === ",rawData);
+        // console.log("userId === ",rawData);
         navigator("/chat");
       }).catch((err)=>{
         console.log("error in login ",err)

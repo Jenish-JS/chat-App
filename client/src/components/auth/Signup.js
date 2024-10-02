@@ -16,6 +16,8 @@ function Signup(props) {
   })
 
   let [apiCallFlag,setApiCallFlag] = useState(0)
+  let navigator = useNavigate()
+
   
   useEffect(()=>{
     apiCalling(userData);
@@ -34,8 +36,7 @@ function Signup(props) {
     }
   }
 
-  let navigator = useNavigate()
-
+ 
   return (
     <>
       <section className="w3l-workinghny-form">
@@ -73,11 +74,9 @@ function Signup(props) {
                   <button className="btn btn-style mt-3" type="submit" onClick={(e)=>{
                     e.preventDefault();
                     setApiCallFlag(++apiCallFlag)
-                    // apiCalling(userData)
                   }} >Submit</button>
                   {/* form end */}
                   <h2 className="link">
-                    {" "}
                     <Link to={"/login"} className="link">
                       Login
                     </Link>
